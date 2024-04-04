@@ -16,7 +16,7 @@ P = tf([k1,k2],[1,a,b])
 print(P)
 
 # Especificaciones de diseño
-Mp = 2
+Mp = 10
 ep = m.sqrt(((m.log(Mp/100))**2)/(m.pi**2+((m.log(Mp/100))**2)))
 tss = 400
 wn = 4/(ep*tss)
