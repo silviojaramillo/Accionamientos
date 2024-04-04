@@ -8,14 +8,15 @@ from os import system
 system('cls')
 
 # Función de transferencia del proceso
-k = 0.0006
+k1 = 62.5
+k2 = 12.9
 a = 0.03271
 b = 0.0002297
-P = tf(k,[1,a,b])
+P = tf([k1,k2],[1,a,b])
 print(P)
 
 # Especificaciones de diseño
-Mp = 25
+Mp = 2
 ep = m.sqrt(((m.log(Mp/100))**2)/(m.pi**2+((m.log(Mp/100))**2)))
 tss = 400
 wn = 4/(ep*tss)
@@ -29,8 +30,8 @@ Sd1 = [s1,s2,s3]
 Pds = np.poly(Sd1)
 
 # Cálculo de los parámetros del controlador
-Kc = ((2*beta*ep**2+1)*wn**2-b)/k
-Ki = (beta*ep*wn**3)/k
+Kc = ((2*beta*ep**2+1)*wn**2-b)/k1
+Ki = (beta*ep*wn**3)/k1
 ti = Kc/Ki
 td = 0
 numc = [Kc,Ki]
